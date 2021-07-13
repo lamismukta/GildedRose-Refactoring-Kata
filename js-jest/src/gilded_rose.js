@@ -44,10 +44,16 @@ class Shop {
           else if(!item.name.startsWith('Sulfuras')) {
             if(item.sellIn >= 0) {
               var update = item.quality -= 1;
+              if(item.name.startsWith('Conjured')) {
+                update *= 2;
+              }
               item.quality = Math.max(0, update);
             }
             if(item.sellIn < 0) {
               var update = item.quality -= 2;
+              if(item.name.startsWith('Conjured')) {
+                update *= 2;
+              }
               item.quality = Math.max(0, update);
             }
             item.sellIn -= 1;
